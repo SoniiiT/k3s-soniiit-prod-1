@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: dev-soniiit-net-selfsigned
+  namespace: default
+spec:
+  secretName: dev-soniiit-net-selfsigned-tls
+  issuerRef:
+    name: selfsigned-issuer-dev
+    kind: ClusterIssuer
+  dnsNames:
+    - "dev.soniiit.net"
+    - "*.dev.soniiit.net"

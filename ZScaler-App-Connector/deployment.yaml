@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zpa-connector
+spec:
+  selector:
+    matchLabels:
+      app: zpa-connector
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: zpa-connector
+    spec:
+      containers:
+      - name: zpa-connector
+        image: "zscaler/zpa-connector:latest.amd64"
+        env:
+        - name: ZPA_PROVISION_KEY
+          value: "<replace with your ZPA provisioning key>"
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+            - NET_BIND_SERVICE 
+            - NET_RAW
+            - SYS_NICE
+            - SYS_BOOT
+            - SYS_TIME

@@ -1,0 +1,23 @@
+authentik:
+    secret_key: "6S02oVosyEk44u2Mg6nRc3jj5Z1BpRLv3BnBjDqm+5Vohyu6J5CmWI9L5EUwTLPrXS77LiaZjYnS/bDj"
+    # This sends anonymous usage-data, stack traces on errors and
+    # performance data to sentry.io, and is fully opt-in
+    error_reporting:
+        enabled: true
+    postgresql:
+        password: "6S02oVosyEk44u2Mg6nRc3jj5Z1BpRLv3BnBjDqm+5Vohyu6J5CmWI9L5EUwTLPrXS77LiaZjYnS/bDj"
+
+server:
+    ingress:
+        # Specify kubernetes ingress controller class name
+        # ingressClassName: traefik
+        enabled: false
+        # hosts:
+        #     - authentik.home.soniiit.net
+
+postgresql:
+    enabled: true
+    auth:
+        password: "6S02oVosyEk44u2Mg6nRc3jj5Z1BpRLv3BnBjDqm+5Vohyu6J5CmWI9L5EUwTLPrXS77LiaZjYnS/bDj"
+redis:
+    enabled: true

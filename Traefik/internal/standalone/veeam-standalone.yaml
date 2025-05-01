@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: veeam
+  namespace: traefik-homelab
+spec:
+  type: ExternalName
+  externalName: 192.168.178.52
+  ports:
+    - port: 9443
+      targetPort: 9443
+      protocol: TCP
+      name: https
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: veeam
+  namespace: traefik-homelab
+  annotations: 
+    kubernetes.io/ingress.class: traefik
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+    - match: Host(`veeam.home.soniiit.net`) && PathPrefix(`/Security/Windows/WinLogin.aspx`)
+      kind: Rule
+      services:
+        - name: veeam
+          namespace: traefik-homelab
+          port: 9443
+          scheme: https
+      middlewares:
+        - name: veeam-redirect
+          namespace: traefik-homelab
+    - match: Host(`veeam.home.soniiit.net`)
+      kind: Rule
+      services:
+        - name: veeam
+          namespace: traefik-homelab
+          port: 9443
+          scheme: https
+  tls:
+    secretName: home-soniiit-net-selfsigned-tls
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: home-soniiit-net-selfsigned-veeam
+  namespace: traefik-homelab
+spec:
+  secretName: home-soniiit-net-selfsigned-tls
+  issuerRef:
+    name: selfsigned-issuer-home
+    kind: ClusterIssuer
+  dnsNames:
+    - "veeam.home.soniiit.net"
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: veeam-redirect
+  namespace: traefik-homelab
+spec:
+  redirectRegex:
+    regex: "^https://veeam.home.soniiit.net/Security/Windows/WinLogin.aspx(.*)"
+    replacement: "https://veeam.home.soniiit.net/login.aspx${1}"

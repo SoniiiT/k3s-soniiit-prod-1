@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cockpit
+  namespace: traefik-homelab
+spec:
+  type: ExternalName
+  externalName: 192.168.178.41
+  ports:
+    - port: 9090
+      targetPort: 9090
+      protocol: TCP
+      name: https
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: cockpit
+  namespace: traefik-homelab
+  annotations: 
+    kubernetes.io/ingress.class: traefik
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+    - match: Host(`cockpit.home.soniiit.net`)
+      kind: Rule
+      services:
+        - name: cockpit
+          namespace: traefik-homelab
+          port: 9090
+          scheme: https
+  tls:
+    secretName: home-soniiit-net-selfsigned-tls
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: home-soniiit-net-selfsigned-cockpit
+  namespace: traefik-homelab
+spec:
+  secretName: home-soniiit-net-selfsigned-tls
+  issuerRef:
+    name: selfsigned-issuer-home
+    kind: ClusterIssuer
+  dnsNames:
+    - "cockpit.home.soniiit.net"

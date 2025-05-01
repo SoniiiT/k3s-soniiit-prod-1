@@ -1,0 +1,32 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: nextcloud
+  namespace: nextcloud
+  annotations: 
+    kubernetes.io/ingress.class: traefik
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`nextcloud.home.soniiit.net`)
+      kind: Rule
+      services:
+        - name: nextcloud
+          port: 8080
+  tls:
+    secretName: home-soniiit-net-selfsigned-tls
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: home-soniiit-net-selfsigned
+  namespace: nextcloud
+spec:
+  secretName: home-soniiit-net-selfsigned-tls
+  issuerRef:
+    name: selfsigned-issuer-home
+    kind: ClusterIssuer
+  dnsNames:
+    - "nextcloud.home.soniiit.net"
+
