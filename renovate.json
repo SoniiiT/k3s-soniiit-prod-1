@@ -2,5 +2,40 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ]
+  ],
+  "kubernetes": {
+    "fileMatch": ["\\.yaml$", "\\.yml$"],
+    "enabled": true
+  },
+  "helm": {
+    "fileMatch": ["Chart\\.yaml$", "values\\.yaml$", "-values\\.yaml$"],
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^traefik"],
+      "groupName": "traefik packages"
+    },
+    {
+      "matchPackagePatterns": ["^argo-cd"],
+      "groupName": "argo-cd packages"
+    },
+    {
+      "matchPackagePatterns": ["^cert-manager"],
+      "groupName": "cert-manager packages"
+    },
+    {
+      "matchPackagePatterns": ["^longhorn"],
+      "groupName": "longhorn packages"
+    },
+    {
+      "matchPackagePatterns": ["^portainer"],
+      "groupName": "portainer packages"
+    }
+  ],
+  "schedule": ["every day"],
+  "automerge": false,
+  "labels": ["dependencies", "kubernetes"],
+  "prHourlyLimit": 4,
+  "prConcurrentLimit": 16
 }

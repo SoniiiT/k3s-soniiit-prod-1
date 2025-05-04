@@ -17,19 +17,19 @@ spec:
       services:
         - name: api@internal
           kind: TraefikService
-  tls:
-    secretName: home-soniiit-net-selfsigned-tls
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: home-soniiit-net-selfsigned
-  namespace: traefik
-spec:
-  secretName: home-soniiit-net-selfsigned-tls
-  issuerRef:
-    name: selfsigned-issuer-home
-    kind: ClusterIssuer
-  dnsNames:
-    - "*.home.soniiit.net"
-    - "traefik.home.soniiit.net"
+  # tls:
+  #   secretName: home-soniiit-net-selfsigned-tls
+# ---
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: home-soniiit-net-selfsigned
+#   namespace: traefik
+# spec:
+#   secretName: home-soniiit-net-selfsigned-tls
+#   issuerRef:
+#     name: selfsigned-issuer-home
+#     kind: ClusterIssuer
+#   dnsNames:
+#     - "*.home.soniiit.net"
+#     - "traefik.home.soniiit.net"

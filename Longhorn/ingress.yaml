@@ -14,18 +14,18 @@ spec:
       services:
         - name: longhorn-frontend
           port: 80
-  tls:
-    secretName: home-soniiit-net-selfsigned-tls
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: home-soniiit-net-selfsigned
-  namespace: longhorn-system
-spec:
-  secretName: home-soniiit-net-selfsigned-tls
-  issuerRef:
-    name: selfsigned-issuer-home
-    kind: ClusterIssuer
-  dnsNames:
-    - "longhorn.home.soniiit.net"
+#   tls:
+#     secretName: home-soniiit-net-selfsigned-tls
+# ---
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: home-soniiit-net-selfsigned
+#   namespace: longhorn-system
+# spec:
+#   secretName: home-soniiit-net-selfsigned-tls
+#   issuerRef:
+#     name: selfsigned-issuer-home
+#     kind: ClusterIssuer
+#   dnsNames:
+#     - "longhorn.home.soniiit.net"

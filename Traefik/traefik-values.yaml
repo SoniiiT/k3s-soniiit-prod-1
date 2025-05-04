@@ -1,55 +1,68 @@
 globalArguments:
-- "--global.sendanonymoususage=false"
-- "--global.checknewversion=false"
+  # Defines global-level arguments for Traefik
+  - "--global.sendanonymoususage=false" # Disable sending anonymous usage statistics
+  - "--global.checknewversion=false"   # Disable automatic check for new version of Traefik
 
 additionalArguments:
-- "--serversTransport.insecureSkipVerify=true"
-- "--log.level=INFO"
+  # Additional arguments for specific settings in Traefik
+  - "--serversTransport.insecureSkipVerify=true" # Skip SSL/TLS certificate verification
+  - "--log.level=INFO"                           # Set logging level to INFO
 
 deployment:
-  enabled: true
-  replicas: 3
-  annotations: {}
-  podAnnotations: {}
-  additionalContainers: []
-  initContainers: []
+  # Configuration for deploying Traefik
+  enabled: true        # Enable Traefik deployment
+  replicas: 2          # Number of replicas/pods for Traefik
+  annotations: {}      # Pod-level annotations
+  podAnnotations: {}   # Annotations applied directly to individual pods
+  additionalContainers: [] # Additional containers to run alongside Traefik pods
+  initContainers: []       # Initialization containers to run before main containers
 
 ports:
+  # Configuration for exposed ports
   web:
-    redirectTo:
-      port: websecure
-      priority: 10
+    expose:
+      default: true    # Expose the web (HTTP) port by default
+    port: 8000         # Internal container port for HTTP
+    exposedPort: 80    # External port exposed to clients
+    protocol: TCP      # Protocol used (TCP for HTTP)
+
   websecure:
-    http3:
-      enabled: true
-    advertisedPort: 4443
+    expose:
+      default: true    # Expose the websecure (HTTPS) port by default
+    port: 8443         # Internal container port for HTTPS
+    exposedPort: 443   # External port exposed to clients
+    protocol: TCP      # Protocol used (TCP for HTTPS)
     tls:
-      enabled: true
+      enabled: true    # Enable TLS for secure connections
 
 ingressRoute:
+  # Configuration for Traefik IngressRoute
   dashboard:
-    enabled: false
+    enabled: false     # Disable the Traefik dashboard by default
 
 providers:
+  # Definition of supported providers
   kubernetesCRD:
-    enabled: true
-    ingressClass: traefik
-    allowExternalNameServices: true
+    enabled: true                          # Enable Kubernetes CustomResourceDefinitions (CRD)
+    ingressClass: traefik                 # Define ingress class for Traefik
+    allowExternalNameServices: true       # Allow external-name services in the cluster
   kubernetesIngress:
-    enabled: true
-    allowExternalNameServices: true
+    enabled: true                         # Enable Kubernetes Ingress
+    allowExternalNameServices: true       # Allow external-name services in the cluster
     publishedService:
-      enabled: false
+      enabled: false                      # Disable published service by default
 
 rbac:
-  enabled: true
+  # Role-Based Access Control (RBAC) settings
+  enabled: true                           # Enable RBAC for secure access control
 
 service:
-  enabled: true
-  type: LoadBalancer
-  annotations: {}
-  labels: {}
+  # Configuration for the Traefik service
+  enabled: true                           # Enable Traefik service
+  type: LoadBalancer                      # Set service type as LoadBalancer
+  annotations: {}                         # Add annotations for the service
+  labels: {}                              # Add custom labels to the service
   spec:
-    loadBalancerIP: 192.168.178.30 # this should be an IP in the MetalLB range
-  loadBalancerSourceRanges: []
-  externalIPs: []
+    loadBalancerIP: 192.168.178.20        # Specify a static IP within the MetalLB range
+  loadBalancerSourceRanges: []            # Restrict access to specific source ranges
+  externalIPs: []                         # Specify external IPs if any
