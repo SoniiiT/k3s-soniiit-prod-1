@@ -1,0 +1,78 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: truenas
+  namespace: traefik-ingress
+spec:
+  type: ExternalName
+  externalName: 192.168.178.9
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: truenas-http
+  namespace: traefik-ingress
+  annotations: 
+    kubernetes.io/ingress.class: traefik
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`truenas.home.soniiit.net`)
+      kind: Rule
+      middlewares:
+        - name: truenas-redirect
+          namespace: traefik-ingress
+      services:
+        - name: truenas
+          namespace: traefik-ingress
+          port: 80
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: truenas-https
+  namespace: traefik-ingress
+  annotations: 
+    kubernetes.io/ingress.class: traefik
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`truenas.home.soniiit.net`)
+      kind: Rule
+      services:
+        - name: truenas
+          namespace: traefik-ingress
+          port: 80
+          scheme: http
+  tls:
+    secretName: home-soniiit-net-selfsigned-tls
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: truenas-redirect
+  namespace: traefik-ingress
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: home-soniiit-net-selfsigned-truenas
+  namespace: traefik-ingress
+spec:
+  secretName: home-soniiit-net-selfsigned-tls
+  issuerRef:
+    name: selfsigned-issuer-home
+    kind: ClusterIssuer
+  dnsNames:
+    - "truenas.home.soniiit.net"
