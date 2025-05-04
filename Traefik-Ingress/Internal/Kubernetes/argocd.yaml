@@ -1,19 +1,27 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: longhorn
-  namespace: longhorn-system
+  name: argocd-server
+  namespace: argocd
   annotations: 
     kubernetes.io/ingress.class: traefik
 spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`longhorn.home.soniiit.net`)
-      kind: Rule
+    - kind: Rule
+      match: Host(`argocd.home.soniiit.net`)
+      priority: 10
       services:
-        - name: longhorn-frontend
+        - name: argocd-server
           port: 80
+    - kind: Rule
+      match: Host(`argocd.home.soniiit.net`) && Header(`Content-Type`, `application/grpc`)
+      priority: 11
+      services:
+        - name: argocd-server
+          port: 80
+          scheme: h2c
 #   tls:
 #     secretName: home-soniiit-net-selfsigned-tls
 # ---
@@ -21,11 +29,11 @@ spec:
 # kind: Certificate
 # metadata:
 #   name: home-soniiit-net-selfsigned
-#   namespace: longhorn-system
+#   namespace: argocd
 # spec:
 #   secretName: home-soniiit-net-selfsigned-tls
 #   issuerRef:
 #     name: selfsigned-issuer-home
 #     kind: ClusterIssuer
 #   dnsNames:
-#     - "longhorn.home.soniiit.net"
+#     - "argocd.home.soniiit.net"
