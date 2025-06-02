@@ -1,0 +1,23 @@
+server:
+  dev:
+    enabled: true
+  ha:
+    enabled: false
+  dataStorage:
+    enabled: true
+    size: 10Gi
+  service:
+    enabled: true
+    type: ClusterIP
+  ingress:
+    enabled: false
+
+injector:
+  enabled: true
+  replicas: 1
+
+ui:
+  enabled: true
+  serviceType: ClusterIP
+  serviceNodePort: null
+  externalPort: 8200 

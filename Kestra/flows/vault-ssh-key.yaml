@@ -1,0 +1,94 @@
+id: vault-ssh-key
+namespace: tutorial
+description: Ein Flow, der das SSH-Key aus Vault liest und debuggt
+
+tasks:
+  - id: debug-vault-access
+    type: io.kestra.core.tasks.scripts.Bash
+    description: Prüft den Vault-Zugriff und die Variable
+    interpreter: /bin/bash
+    commands:
+      - |
+        echo "=== Vault Umgebungsvariablen ==="
+        env | grep -i vault
+        echo ""
+        echo "=== Vault Variable Inhalt ==="
+        echo "Variable Name: SSH_KEY"
+        echo "Variable Wert: '${SSH_KEY}'"
+        echo "Variable Länge: $(echo -n "${SSH_KEY}" | wc -c)"
+        echo ""
+        echo "=== Vault API Test ==="
+        if curl -s -k "${VAULT_ADDR}/v1/sys/health" > /dev/null; then
+          echo "Vault API ist erreichbar"
+        else
+          echo "Vault API ist NICHT erreichbar"
+        fi
+    env:
+      SSH_KEY: ${vault:kv/data/kestra:SSH_KEY}
+
+  - id: debug-vault-api
+    type: io.kestra.core.tasks.scripts.Bash
+    description: Testet den direkten Zugriff auf die Vault-API
+    interpreter: /bin/bash
+    commands:
+      - |
+        echo "=== Vault API Direktzugriff ==="
+        # Token aus ServiceAccount holen
+        TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+        echo "ServiceAccount Token: ${TOKEN:0:10}..."
+        
+        # Kubernetes Auth
+        echo "=== Kubernetes Auth ==="
+        K8S_AUTH_RESPONSE=$(curl -s -k \
+          --request POST \
+          --data "{\"role\": \"${VAULT_ROLE}\", \"jwt\": \"${TOKEN}\"}" \
+          "${VAULT_ADDR}/v1/auth/${VAULT_PATH}/login")
+        echo "Auth Response: ${K8S_AUTH_RESPONSE}"
+        
+        # Prüfe auf Fehler
+        if echo "${K8S_AUTH_RESPONSE}" | grep -q "errors"; then
+          echo "Fehler bei der Authentifizierung!"
+          exit 1
+        fi
+        
+        # Vault Token extrahieren (ohne jq)
+        VAULT_TOKEN=$(echo "${K8S_AUTH_RESPONSE}" | sed -n 's/.*"client_token":"\([^"]*\)".*/\1/p')
+        if [ -z "${VAULT_TOKEN}" ]; then
+          echo "Konnte Vault Token nicht extrahieren!"
+          exit 1
+        fi
+        echo "Vault Token: ${VAULT_TOKEN:0:10}..."
+        
+        # Secret lesen
+        echo "=== Secret lesen ==="
+        SECRET_RESPONSE=$(curl -s -k \
+          -H "X-Vault-Token: ${VAULT_TOKEN}" \
+          "${VAULT_ADDR}/v1/${KESTRA_VAULT_MOUNT}/data/kestra")
+        echo "Secret Response: ${SECRET_RESPONSE}"
+    env:
+      SSH_KEY: ${vault:kv/data/kestra:SSH_KEY}
+
+  - id: read-ssh-key
+    type: io.kestra.core.tasks.scripts.Bash
+    description: Liest das SSH-Key aus Vault und gibt es aus
+    interpreter: /bin/bash
+    commands:
+      - echo "SSH Key aus Vault:"
+      - echo "${SSH_KEY}"
+    env:
+      SSH_KEY: ${vault:kv/data/kestra:SSH_KEY}
+
+  - id: validate-ssh-key
+    type: io.kestra.core.tasks.scripts.Bash
+    description: Validiert das SSH-Key Format
+    interpreter: /bin/bash
+    commands:
+      - |
+        if [[ "${SSH_KEY}" == ssh-* ]]; then
+          echo "SSH Key Format ist gültig"
+        else
+          echo "SSH Key Format ist ungültig"
+          exit 1
+        fi
+    env:
+      SSH_KEY: ${vault:kv/data/kestra:SSH_KEY} 
