@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: jellifin
+  name: jellyfin
   namespace: traefik-ingress
 spec:
   type: ExternalName
@@ -15,7 +15,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: jellifin-http
+  name: jellyfin-http
   namespace: traefik-ingress
   annotations: 
     kubernetes.io/ingress.class: traefik
@@ -23,20 +23,20 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`jellifin.home.soniiit.net`)
+    - match: Host(`jellyfin.home.soniiit.net`)
       kind: Rule
       middlewares:
-        - name: jellifin-redirect
+        - name: jellyfin-redirect
           namespace: traefik-ingress
       services:
-        - name: jellifin
+        - name: jellyfin
           namespace: traefik-ingress
           port: 8096
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: jellifin-https
+  name: jellyfin-https
   namespace: traefik-ingress
   annotations: 
     kubernetes.io/ingress.class: traefik
@@ -44,10 +44,10 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`jellifin.home.soniiit.net`)
+    - match: Host(`jellyfin.home.soniiit.net`)
       kind: Rule
       services:
-        - name: jellifin
+        - name: jellyfin
           namespace: traefik-ingress
           port: 8096
           scheme: http
@@ -57,7 +57,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: jellifin-redirect
+  name: jellyfin-redirect
   namespace: traefik-ingress
 spec:
   redirectScheme:
@@ -67,7 +67,7 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: home-soniiit-net-selfsigned-jellifin
+  name: home-soniiit-net-selfsigned-jellyfin
   namespace: traefik-ingress
 spec:
   secretName: home-soniiit-net-selfsigned-tls
@@ -75,4 +75,4 @@ spec:
     name: selfsigned-issuer-home
     kind: ClusterIssuer
   dnsNames:
-    - "jellifin.home.soniiit.net"
+    - "jellyfin.home.soniiit.net"
