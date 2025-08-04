@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-image-updater-config
+  namespace: argocd
+data:
+  registries.conf: |
+    registries:
+    - name: Harbor Registry
+      api_url: https://reg.soniiit.com
+      prefix: reg.soniiit.com
+      insecure: no
+      credentials: env:REGISTRY_SECRET
+      limit: 20  # Standard-Rate-Limit
+      credsexpire: 12h  # Anmeldedaten werden nach 12 Stunden aktualisiert
