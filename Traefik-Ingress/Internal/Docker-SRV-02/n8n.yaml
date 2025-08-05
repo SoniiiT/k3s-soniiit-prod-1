@@ -1,0 +1,78 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: n8n
+  namespace: traefik-ingress
+spec:
+  type: ExternalName
+  externalName: 192.168.178.31
+  ports:
+    - port: 5678
+      targetPort: 5678
+      protocol: TCP
+      name: http
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: n8n-http
+  namespace: traefik-ingress
+  annotations: 
+    kubernetes.io/ingress.class: traefik
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`n8n.home.soniiit.net`)
+      kind: Rule
+      middlewares:
+        - name: n8n-redirect
+          namespace: traefik-ingress
+      services:
+        - name: n8n
+          namespace: traefik-ingress
+          port: 5678
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: n8n-https
+  namespace: traefik-ingress
+  annotations: 
+    kubernetes.io/ingress.class: traefik
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`n8n.home.soniiit.net`)
+      kind: Rule
+      services:
+        - name: n8n
+          namespace: traefik-ingress
+          port: 5678
+          scheme: http
+  tls:
+    secretName: home-soniiit-net-selfsigned-tls
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: n8n-redirect
+  namespace: traefik-ingress
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: home-soniiit-net-selfsigned-n8n
+  namespace: traefik-ingress
+spec:
+  secretName: home-soniiit-net-selfsigned-tls
+  issuerRef:
+    name: selfsigned-issuer-home
+    kind: ClusterIssuer
+  dnsNames:
+    - "n8n.home.soniiit.net"
