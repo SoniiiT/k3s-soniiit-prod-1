@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "generated_from": "tracked paths at initial analysis",
+  "areas": [
+    {
+      "area": "cluster-platform",
+      "purpose": "Helm values and installation notes for platform services",
+      "paths": [
+        "Argo-CD/deployment.yaml",
+        "Argo-CD/registries/registries.yaml",
+        "Argo-CD/registries/secrets.yaml",
+        "Authentik/authentik-values.yaml",
+        "Authentik/ingress.yaml",
+        "Authentik/install.md",
+        "Crowdsec/crowdsec-values.yaml",
+        "Crowdsec/install.md",
+        "Homepage/homepage-values.yaml",
+        "Homepage/ingress.yaml",
+        "Homepage/install.md",
+        "Kestra/kestra-values.yaml",
+        "Kestra/vault-config.yaml",
+        "Kestra/flows/vault-ssh-key.yaml",
+        "Kestra/secrets/ssh-key.yaml",
+        "Kestra/secrets/tf-id-token.yaml",
+        "Kestra/secrets/tf-pve-api-token.yaml",
+        "Kestra/secrets/tg-api-token.yaml",
+        "Kestra/secrets/tsig-key.yaml",
+        "Longhorn/longhorn-values.yaml",
+        "Longhorn/install.md",
+        "Portainer/portainer-values.yaml",
+        "Portainer/install.md",
+        "Traefik/traefik-values.yaml",
+        "Traefik/install.md",
+        "Vault/vault-values.yaml",
+        "Vault/vault-auth.yaml",
+        "Vault/kestra-vault-sa.yaml",
+        "kube-prometheus-stack/values.yaml",
+        "kube-prometheus-stack/kube-prometheus-stack.yaml",
+        "kube-prometheus-stack/install.md"
+      ],
+      "status": "observed"
+    },
+    {
+      "area": "certificates",
+      "purpose": "Issuers, certificates, and CA material",
+      "paths": [
+        "Cert-Manager/cert-manager-values.yaml",
+        "Cert-Manager/install.md",
+        "Cert-Manager/certificates/cloudflare+letsencrypt/certificates-production.yaml",
+        "Cert-Manager/certificates/cloudflare+letsencrypt/certificates-staging.yaml",
+        "Cert-Manager/certificates/selfsigned/certificates-selfsigned-demo.yaml",
+        "Cert-Manager/certificates/selfsigned/certificates-selfsigned-dev.yaml",
+        "Cert-Manager/certificates/selfsigned/certificates-selfsigned-home.yaml",
+        "Cert-Manager/issuer/cloudflare+letsencrypt/cloudflare-credentials.yaml",
+        "Cert-Manager/issuer/cloudflare+letsencrypt/letsencrypt-production.yaml",
+        "Cert-Manager/issuer/cloudflare+letsencrypt/letsencrypt-staging.yaml",
+        "Cert-Manager/issuer/selfsigned/demo/ca.crt",
+        "Cert-Manager/issuer/selfsigned/demo/ca.key",
+        "Cert-Manager/issuer/selfsigned/demo/clusterissuer-selfsigned-demo.yml",
+        "Cert-Manager/issuer/selfsigned/demo/selfsigned-ca-demo.yaml",
+        "Cert-Manager/issuer/selfsigned/dev/ca.crt",
+        "Cert-Manager/issuer/selfsigned/dev/ca.key",
+        "Cert-Manager/issuer/selfsigned/dev/clusterissuer-selfsigned-dev.yml",
+        "Cert-Manager/issuer/selfsigned/dev/selfsigned-ca-dev.yaml",
+        "Cert-Manager/issuer/selfsigned/home/ca.crt",
+        "Cert-Manager/issuer/selfsigned/home/ca.key",
+        "Cert-Manager/issuer/selfsigned/home/clusterissuer-selfsigned-home.yml",
+        "Cert-Manager/issuer/selfsigned/home/selfsigned-ca-home.yaml"
+      ],
+      "status": "observed-sensitive-material-not-read"
+    },
+    {
+      "area": "ingress-targets",
+      "purpose": "Traefik routes to internal services",
+      "paths": [
+        "Traefik-Ingress/Internal/Docker-SRV-01/homepage.yaml",
+        "Traefik-Ingress/Internal/Docker-SRV-01/kestra.yaml",
+        "Traefik-Ingress/Internal/Docker-SRV-02/n8n.yaml",
+        "Traefik-Ingress/Internal/Home/jellyfin-vue.yaml",
+        "Traefik-Ingress/Internal/Home/jellyfin.yaml",
+        "Traefik-Ingress/Internal/Home/jellyseerr.yaml",
+        "Traefik-Ingress/Internal/Home/pbs.yaml",
+        "Traefik-Ingress/Internal/Home/prowlarr.yaml",
+        "Traefik-Ingress/Internal/Home/proxmox.yaml",
+        "Traefik-Ingress/Internal/Home/radarr.yaml",
+        "Traefik-Ingress/Internal/Home/sonarr.yaml",
+        "Traefik-Ingress/Internal/Home/truenas.yaml",
+        "Traefik-Ingress/Internal/Kubernetes/argocd.yaml",
+        "Traefik-Ingress/Internal/Kubernetes/longhorn.yaml",
+        "Traefik-Ingress/Internal/Kubernetes/traefik.yaml",
+        "Traefik-Ingress/Internal/LXC/checkmk.yaml",
+        "Traefik-Ingress/Internal/LXC/pihole.yaml",
+        "Traefik-Ingress/Internal/LXC/wazuh.yaml"
+      ],
+      "status": "observed"
+    },
+    {
+      "area": "traefik-middleware",
+      "purpose": "Shared routing and security middleware",
+      "paths": [
+        "Traefik/middleware/middleware.yaml",
+        "Traefik/middleware/default-headers.yaml",
+        "Traefik/middleware/dashboard-credentials.yaml",
+        "Traefik/middleware/Crowdsec/bouncer-middleware.yaml"
+      ],
+      "status": "observed-sensitive-material-not-read"
+    },
+    {
+      "area": "repository-metadata",
+      "purpose": "Documentation and update automation",
+      "paths": [
+        "README.md",
+        "renovate.json",
+        ".gitignore"
+      ],
+      "status": "observed"
+    },
+    {
+      "area": "sensitive-or-credential-like",
+      "purpose": "Tracked secrets, tokens, certificates, keys, and client credentials",
+      "paths": [
+        "Argo-CD/authentik/oidc.authentik.clientSecret",
+        "Argo-CD/authentik/oidc.config",
+        "Argo-CD/authentik/policy.csv"
+      ],
+      "status": "sensitive-material-not-read"
+    }
+  ]
+}
