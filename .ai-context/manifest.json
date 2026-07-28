@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "project_root": ".",
+  "analysis_mode": "initialized",
+  "analyzed_at": "2026-07-28T11:51:18+02:00",
+  "analyzed_areas": [
+    "Kubernetes and K3s deployment",
+    "Helm values and installation procedures",
+    "Traefik ingress and TLS",
+    "Vault and Kestra integration",
+    "Observability and security services",
+    "Repository conventions and dependencies"
+  ],
+  "source_fingerprints": {
+    "git_commit": "ee07982102f3c5f57dedb36730f37727df800823",
+    "tracked_file_count": 81,
+    "path_list_sha256": "87268df88a83d84b5c2a47eaade78b1f65dd8d3db7f8dda0ce488750e4d93430",
+    "fingerprint_scope": "tracked paths before context creation"
+  },
+  "refresh_status": "initial",
+  "sensitive_material": {
+    "present": true,
+    "indexed_without_values": true,
+    "note": "Tracked files include credential, token, key, certificate, and secret-like artifacts. Secret contents are intentionally not captured in this context."
+  }
+}

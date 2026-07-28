@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "generated_from": "Kubernetes resource metadata and repository entry points",
+  "entries": [
+    {
+      "name": "traefik",
+      "kind": "HelmReleaseConfiguration",
+      "area": "Traefik",
+      "paths": ["Traefik/traefik-values.yaml", "Traefik-Ingress/Internal/Kubernetes/traefik.yaml"]
+    },
+    {
+      "name": "cert-manager",
+      "kind": "HelmReleaseConfiguration",
+      "area": "Certificates",
+      "paths": ["Cert-Manager/cert-manager-values.yaml", "Cert-Manager/issuer", "Cert-Manager/certificates"]
+    },
+    {
+      "name": "selfsigned-issuer-home",
+      "kind": "ClusterIssuer",
+      "area": "Certificates",
+      "paths": ["Cert-Manager/issuer/selfsigned/home/clusterissuer-selfsigned-home.yml"]
+    },
+    {
+      "name": "letsencrypt-production",
+      "kind": "ClusterIssuer",
+      "area": "Certificates",
+      "paths": ["Cert-Manager/issuer/cloudflare+letsencrypt/letsencrypt-production.yaml"]
+    },
+    {
+      "name": "kestra-vault",
+      "kind": "ServiceAccount",
+      "area": "Vault and Kestra",
+      "paths": ["Vault/kestra-vault-sa.yaml", "Kestra/kestra-values.yaml"]
+    },
+    {
+      "name": "kestra",
+      "kind": "HelmReleaseConfiguration",
+      "area": "Vault and Kestra",
+      "paths": ["Kestra/kestra-values.yaml", "Kestra/vault-config.yaml", "Kestra/flows/vault-ssh-key.yaml"]
+    },
+    {
+      "name": "kube-prometheus-stack",
+      "kind": "HelmReleaseConfiguration",
+      "area": "Observability",
+      "paths": ["kube-prometheus-stack/values.yaml", "kube-prometheus-stack/kube-prometheus-stack.yaml"]
+    },
+    {
+      "name": "argocd",
+      "kind": "UpstreamManifestBundle",
+      "area": "GitOps",
+      "paths": ["Argo-CD/deployment.yaml", "Argo-CD/registries/registries.yaml"]
+    },
+    {
+      "name": "IngressRoute",
+      "kind": "TraefikCustomResource",
+      "area": "Ingress targets",
+      "paths": ["Traefik-Ingress/"]
+    }
+  ]
+}
