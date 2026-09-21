@@ -1,0 +1,874 @@
+{
+  "version": 1,
+  "meta": {
+    "lastScanned": "2026-09-21T16:32:35.938Z",
+    "fileCount": 95,
+    "hits": 0,
+    "misses": 0,
+    "renderedHash": "a27ce378c23e468c188c6b276a49b7b3e0d82943964beb0887cc6e534685cba2",
+    "storeUpdatedAt": "2026-09-21T16:32:35.939Z",
+    "rootHash": "54d3d53d9b90c5ae"
+  },
+  "files": {
+    ".ai-context/architecture.md": {
+      "description": "Architecture",
+      "tokens": 776,
+      "hash": "6e5909eab49c29bc",
+      "size": 3102,
+      "mtimeMs": 1787554058247.9927,
+      "updatedAt": "2026-09-21T16:32:35.915Z",
+      "source": "scan"
+    },
+    ".ai-context/conventions.md": {
+      "description": "Conventions",
+      "tokens": 471,
+      "hash": "1eed6b780463a90a",
+      "size": 1882,
+      "mtimeMs": 1787554058248.0715,
+      "updatedAt": "2026-09-21T16:32:35.915Z",
+      "source": "scan"
+    },
+    ".ai-context/dependencies.md": {
+      "description": "Dependencies",
+      "tokens": 385,
+      "hash": "675a5a945fa61b1c",
+      "size": 1540,
+      "mtimeMs": 1787554058248.136,
+      "updatedAt": "2026-09-21T16:32:35.915Z",
+      "source": "scan"
+    },
+    ".ai-context/indexes/files.json": {
+      "description": "",
+      "tokens": 1527,
+      "hash": "d09243694ffe6e64",
+      "size": 5342,
+      "mtimeMs": 1787554058248.249,
+      "updatedAt": "2026-09-21T16:32:35.916Z",
+      "source": "scan"
+    },
+    ".ai-context/indexes/symbols.json": {
+      "description": "",
+      "tokens": 551,
+      "hash": "144671197bd1541f",
+      "size": 1928,
+      "mtimeMs": 1787554058248.3245,
+      "updatedAt": "2026-09-21T16:32:35.916Z",
+      "source": "scan"
+    },
+    ".ai-context/knowledge/business-rules/index.md": {
+      "description": "Business rules",
+      "tokens": 70,
+      "hash": "d270d968c08bfea3",
+      "size": 278,
+      "mtimeMs": 1787554058248.5505,
+      "updatedAt": "2026-09-21T16:32:35.917Z",
+      "source": "scan"
+    },
+    ".ai-context/knowledge/decisions/index.md": {
+      "description": "Decisions",
+      "tokens": 47,
+      "hash": "f1e1aa14c4d3b1e0",
+      "size": 188,
+      "mtimeMs": 1787554058248.655,
+      "updatedAt": "2026-09-21T16:32:35.917Z",
+      "source": "scan"
+    },
+    ".ai-context/knowledge/feature-guides/ingress-routing.md": {
+      "description": "Ingress routing",
+      "tokens": 282,
+      "hash": "012e8f93f0f3fcda",
+      "size": 1125,
+      "mtimeMs": 1787554058248.7773,
+      "updatedAt": "2026-09-21T16:32:35.917Z",
+      "source": "scan"
+    },
+    ".ai-context/knowledge/feature-guides/observability.md": {
+      "description": "Observability",
+      "tokens": 255,
+      "hash": "e727d43b7d2bafc8",
+      "size": 1019,
+      "mtimeMs": 1787554058248.8547,
+      "updatedAt": "2026-09-21T16:32:35.917Z",
+      "source": "scan"
+    },
+    ".ai-context/knowledge/feature-guides/platform-services.md": {
+      "description": "Platform services",
+      "tokens": 182,
+      "hash": "056c1d4fd7a9a854",
+      "size": 728,
+      "mtimeMs": 1787554058248.927,
+      "updatedAt": "2026-09-21T16:32:35.917Z",
+      "source": "scan"
+    },
+    ".ai-context/knowledge/feature-guides/vault-kestra-secrets.md": {
+      "description": "Vault and Kestra secrets",
+      "tokens": 286,
+      "hash": "47ec91bdd6947020",
+      "size": 1144,
+      "mtimeMs": 1787554058248.991,
+      "updatedAt": "2026-09-21T16:32:35.918Z",
+      "source": "scan"
+    },
+    ".ai-context/knowledge/README.md": {
+      "description": "Project documentation",
+      "tokens": 172,
+      "hash": "83daf02bc2ed2fbc",
+      "size": 686,
+      "mtimeMs": 1787554058248.4333,
+      "updatedAt": "2026-09-21T16:32:35.918Z",
+      "source": "scan"
+    },
+    ".ai-context/knowledge/removal-guides/ingress-route.md": {
+      "description": "Removing an ingress route",
+      "tokens": 125,
+      "hash": "cbe1f07fa6fc22c7",
+      "size": 498,
+      "mtimeMs": 1787554058249.1038,
+      "updatedAt": "2026-09-21T16:32:35.918Z",
+      "source": "scan"
+    },
+    ".ai-context/knowledge/removal-guides/platform-service.md": {
+      "description": "Removing a platform service",
+      "tokens": 141,
+      "hash": "2de17478d4f773c1",
+      "size": 563,
+      "mtimeMs": 1787554058249.1758,
+      "updatedAt": "2026-09-21T16:32:35.918Z",
+      "source": "scan"
+    },
+    ".ai-context/knowledge/removal-guides/vault-kestra.md": {
+      "description": "Removing Vault/Kestra integration",
+      "tokens": 140,
+      "hash": "71dc6527a89039b2",
+      "size": 557,
+      "mtimeMs": 1787554058249.245,
+      "updatedAt": "2026-09-21T16:32:35.918Z",
+      "source": "scan"
+    },
+    ".ai-context/knowledge/risks/index.md": {
+      "description": "Risks and uncertainty",
+      "tokens": 332,
+      "hash": "a22a0d332653c8eb",
+      "size": 1326,
+      "mtimeMs": 1787554058249.3538,
+      "updatedAt": "2026-09-21T16:32:35.918Z",
+      "source": "scan"
+    },
+    ".ai-context/manifest.json": {
+      "description": "",
+      "tokens": 275,
+      "hash": "52e6a422fb0484ac",
+      "size": 960,
+      "mtimeMs": 1787554058249.4204,
+      "updatedAt": "2026-09-21T16:32:35.918Z",
+      "source": "scan"
+    },
+    ".ai-context/project-map.md": {
+      "description": "Project map",
+      "tokens": 577,
+      "hash": "812a1b8b84c5f4a6",
+      "size": 2306,
+      "mtimeMs": 1787554058249.4915,
+      "updatedAt": "2026-09-21T16:32:35.919Z",
+      "source": "scan"
+    },
+    ".github/copilot-instructions.md": {
+      "description": "Copilot instructions",
+      "tokens": 85,
+      "hash": "bd98338a9f050bec",
+      "size": 337,
+      "mtimeMs": 1787554058249.602,
+      "updatedAt": "2026-09-21T16:32:35.919Z",
+      "source": "scan"
+    },
+    ".gitignore": {
+      "description": "Git ignore rules",
+      "tokens": 112,
+      "hash": "083f5949a614fe8b",
+      "size": 421,
+      "mtimeMs": 1787554058249.6758,
+      "updatedAt": "2026-09-21T16:32:35.919Z",
+      "source": "scan"
+    },
+    "AGENTS.md": {
+      "description": "Agent context",
+      "tokens": 183,
+      "hash": "f2fa652a748fd33c",
+      "size": 732,
+      "mtimeMs": 1790008355899.1182,
+      "updatedAt": "2026-09-21T16:32:35.919Z",
+      "source": "scan"
+    },
+    "Argo-CD/authentik/oidc.authentik.clientSecret": {
+      "description": "",
+      "tokens": 4,
+      "hash": "b47e9402bd23693e",
+      "size": 14,
+      "mtimeMs": 1787554058249.8767,
+      "updatedAt": "2026-09-21T16:32:35.919Z",
+      "source": "scan"
+    },
+    "Argo-CD/authentik/oidc.config": {
+      "description": "",
+      "tokens": 74,
+      "hash": "f37c9c342307e74d",
+      "size": 276,
+      "mtimeMs": 1787554058249.9404,
+      "updatedAt": "2026-09-21T16:32:35.919Z",
+      "source": "scan"
+    },
+    "Argo-CD/authentik/policy.csv": {
+      "description": "",
+      "tokens": 12,
+      "hash": "2287b5893fb187db",
+      "size": 45,
+      "mtimeMs": 1787554058249.9958,
+      "updatedAt": "2026-09-21T16:32:35.919Z",
+      "source": "scan"
+    },
+    "Argo-CD/registries/registries.yaml": {
+      "description": "K8s ConfigMap: argocd-image-updater-config",
+      "tokens": 117,
+      "hash": "e53c2ebddf62c80e",
+      "size": 409,
+      "mtimeMs": 1787554058251.573,
+      "updatedAt": "2026-09-21T16:32:35.920Z",
+      "source": "scan"
+    },
+    "Authentik/authentik-values.yaml": {
+      "description": "Declares name",
+      "tokens": 218,
+      "hash": "11e16d229168915b",
+      "size": 760,
+      "mtimeMs": 1787554058251.7488,
+      "updatedAt": "2026-09-21T16:32:35.920Z",
+      "source": "scan"
+    },
+    "Authentik/ingress.yaml": {
+      "description": "K8s IngressRoute: authentik",
+      "tokens": 189,
+      "hash": "8263d9e90e6ba7f9",
+      "size": 661,
+      "mtimeMs": 1787554058251.8174,
+      "updatedAt": "2026-09-21T16:32:35.920Z",
+      "source": "scan"
+    },
+    "Authentik/install.md": {
+      "description": "",
+      "tokens": 56,
+      "hash": "3513c3c6f7c1f68b",
+      "size": 221,
+      "mtimeMs": 1787554058251.8796,
+      "updatedAt": "2026-09-21T16:32:35.920Z",
+      "source": "scan"
+    },
+    "Cert-Manager/cert-manager-values.yaml": {
+      "description": "",
+      "tokens": 62,
+      "hash": "425784c00f22a0fd",
+      "size": 216,
+      "mtimeMs": 1787554058252.0325,
+      "updatedAt": "2026-09-21T16:32:35.920Z",
+      "source": "scan"
+    },
+    "Cert-Manager/certificates/cloudflare+letsencrypt/certificates-production.yaml": {
+      "description": "K8s Certificate: soniiit-net-production",
+      "tokens": 88,
+      "hash": "39ed4765e6d1ff00",
+      "size": 307,
+      "mtimeMs": 1787554058252.1853,
+      "updatedAt": "2026-09-21T16:32:35.921Z",
+      "source": "scan"
+    },
+    "Cert-Manager/certificates/cloudflare+letsencrypt/certificates-staging.yaml": {
+      "description": "K8s Certificate: soniiit-net-staging",
+      "tokens": 86,
+      "hash": "8563e0b31f6abfc1",
+      "size": 298,
+      "mtimeMs": 1787554058252.252,
+      "updatedAt": "2026-09-21T16:32:35.921Z",
+      "source": "scan"
+    },
+    "Cert-Manager/certificates/selfsigned/certificates-selfsigned-demo.yaml": {
+      "description": "K8s Certificate: demo-soniiit-net-selfsigned",
+      "tokens": 86,
+      "hash": "4ce3fb772fd646c7",
+      "size": 301,
+      "mtimeMs": 1787554058252.3474,
+      "updatedAt": "2026-09-21T16:32:35.921Z",
+      "source": "scan"
+    },
+    "Cert-Manager/certificates/selfsigned/certificates-selfsigned-dev.yaml": {
+      "description": "K8s Certificate: dev-soniiit-net-selfsigned",
+      "tokens": 85,
+      "hash": "aa09b9112808d5f8",
+      "size": 296,
+      "mtimeMs": 1787554058252.419,
+      "updatedAt": "2026-09-21T16:32:35.921Z",
+      "source": "scan"
+    },
+    "Cert-Manager/certificates/selfsigned/certificates-selfsigned-home.yaml": {
+      "description": "K8s Certificate: home-soniiit-net-selfsigned",
+      "tokens": 86,
+      "hash": "6579543ed1dc85ab",
+      "size": 301,
+      "mtimeMs": 1787554058252.4888,
+      "updatedAt": "2026-09-21T16:32:35.921Z",
+      "source": "scan"
+    },
+    "Cert-Manager/install.md": {
+      "description": "",
+      "tokens": 53,
+      "hash": "7e992c689211fadf",
+      "size": 211,
+      "mtimeMs": 1787554058252.5474,
+      "updatedAt": "2026-09-21T16:32:35.921Z",
+      "source": "scan"
+    },
+    "Cert-Manager/issuer/cloudflare+letsencrypt/letsencrypt-production.yaml": {
+      "description": "K8s ClusterIssuer: letsencrypt-production",
+      "tokens": 146,
+      "hash": "8e65af52edcd9d38",
+      "size": 509,
+      "mtimeMs": 1787554058252.7512,
+      "updatedAt": "2026-09-21T16:32:35.921Z",
+      "source": "scan"
+    },
+    "Cert-Manager/issuer/cloudflare+letsencrypt/letsencrypt-staging.yaml": {
+      "description": "K8s ClusterIssuer: letsencrypt-staging",
+      "tokens": 146,
+      "hash": "ca8b0f112a72dd84",
+      "size": 511,
+      "mtimeMs": 1787554058252.8223,
+      "updatedAt": "2026-09-21T16:32:35.922Z",
+      "source": "scan"
+    },
+    "Cert-Manager/issuer/selfsigned/demo/ca.crt": {
+      "description": "",
+      "tokens": 18,
+      "hash": "1c61d8ba4458b4f4",
+      "size": 66,
+      "mtimeMs": 1787554058252.954,
+      "updatedAt": "2026-09-21T16:32:35.922Z",
+      "source": "scan"
+    },
+    "Cert-Manager/issuer/selfsigned/demo/clusterissuer-selfsigned-demo.yml": {
+      "description": "K8s ClusterIssuer: selfsigned-issuer-demo",
+      "tokens": 40,
+      "hash": "83694fdf7a0ca925",
+      "size": 138,
+      "mtimeMs": 1787554058253.0728,
+      "updatedAt": "2026-09-21T16:32:35.922Z",
+      "source": "scan"
+    },
+    "Cert-Manager/issuer/selfsigned/demo/selfsigned-ca-demo.yaml": {
+      "description": "K8s Secret: selfsigned-ca-demo",
+      "tokens": 57,
+      "hash": "8ad42546858e68cb",
+      "size": 199,
+      "mtimeMs": 1787554058253.132,
+      "updatedAt": "2026-09-21T16:32:35.922Z",
+      "source": "scan"
+    },
+    "Cert-Manager/issuer/selfsigned/dev/ca.crt": {
+      "description": "",
+      "tokens": 18,
+      "hash": "1c61d8ba4458b4f4",
+      "size": 66,
+      "mtimeMs": 1787554058253.2314,
+      "updatedAt": "2026-09-21T16:32:35.922Z",
+      "source": "scan"
+    },
+    "Cert-Manager/issuer/selfsigned/dev/clusterissuer-selfsigned-dev.yml": {
+      "description": "K8s ClusterIssuer: selfsigned-issuer-dev",
+      "tokens": 39,
+      "hash": "15237d0e7a202039",
+      "size": 136,
+      "mtimeMs": 1787554058253.3596,
+      "updatedAt": "2026-09-21T16:32:35.922Z",
+      "source": "scan"
+    },
+    "Cert-Manager/issuer/selfsigned/dev/selfsigned-ca-dev.yaml": {
+      "description": "K8s Secret: selfsigned-ca-dev",
+      "tokens": 57,
+      "hash": "f436903db78875cb",
+      "size": 198,
+      "mtimeMs": 1787554058253.418,
+      "updatedAt": "2026-09-21T16:32:35.923Z",
+      "source": "scan"
+    },
+    "Cert-Manager/issuer/selfsigned/home/ca.crt": {
+      "description": "",
+      "tokens": 18,
+      "hash": "1c61d8ba4458b4f4",
+      "size": 66,
+      "mtimeMs": 1787554058253.521,
+      "updatedAt": "2026-09-21T16:32:35.923Z",
+      "source": "scan"
+    },
+    "Cert-Manager/issuer/selfsigned/home/clusterissuer-selfsigned-home.yml": {
+      "description": "K8s ClusterIssuer: selfsigned-issuer-home",
+      "tokens": 40,
+      "hash": "36c561317f297c05",
+      "size": 138,
+      "mtimeMs": 1787554058253.6667,
+      "updatedAt": "2026-09-21T16:32:35.923Z",
+      "source": "scan"
+    },
+    "Cert-Manager/issuer/selfsigned/home/selfsigned-ca-home.yaml": {
+      "description": "K8s Secret: selfsigned-ca-home",
+      "tokens": 58,
+      "hash": "ef3a1748892c720b",
+      "size": 200,
+      "mtimeMs": 1787554058253.7488,
+      "updatedAt": "2026-09-21T16:32:35.923Z",
+      "source": "scan"
+    },
+    "CLAUDE.md": {
+      "description": "OpenWolf",
+      "tokens": 190,
+      "hash": "14fdae9588529f46",
+      "size": 757,
+      "mtimeMs": 1790008355893.2068,
+      "updatedAt": "2026-09-21T16:32:35.923Z",
+      "source": "scan"
+    },
+    "Crowdsec/crowdsec-values.yaml": {
+      "description": "for raw logs format: json or cri (docker|containerd)",
+      "tokens": 205,
+      "hash": "2eed99fb4debd9cc",
+      "size": 716,
+      "mtimeMs": 1787554058253.9246,
+      "updatedAt": "2026-09-21T16:32:35.923Z",
+      "source": "scan"
+    },
+    "Crowdsec/install.md": {
+      "description": "",
+      "tokens": 45,
+      "hash": "330a4d3d9af21c9c",
+      "size": 179,
+      "mtimeMs": 1787554058254.0247,
+      "updatedAt": "2026-09-21T16:32:35.923Z",
+      "source": "scan"
+    },
+    "Homepage/homepage-values.yaml": {
+      "description": "",
+      "tokens": 2747,
+      "hash": "b17153ce15e39c19",
+      "size": 9613,
+      "mtimeMs": 1787554058254.191,
+      "updatedAt": "2026-09-21T16:32:35.923Z",
+      "source": "scan"
+    },
+    "Homepage/ingress.yaml": {
+      "description": "K8s IngressRoute: homepage",
+      "tokens": 193,
+      "hash": "5771cd35f3487590",
+      "size": 674,
+      "mtimeMs": 1787554058254.277,
+      "updatedAt": "2026-09-21T16:32:35.924Z",
+      "source": "scan"
+    },
+    "Homepage/install.md": {
+      "description": "",
+      "tokens": 46,
+      "hash": "f97b8c353ea9a2e0",
+      "size": 182,
+      "mtimeMs": 1787554058254.356,
+      "updatedAt": "2026-09-21T16:32:35.924Z",
+      "source": "scan"
+    },
+    "Kestra/flows/vault-ssh-key.yaml": {
+      "description": "",
+      "tokens": 886,
+      "hash": "dfe906512378916f",
+      "size": 3106,
+      "mtimeMs": 1787554058254.553,
+      "updatedAt": "2026-09-21T16:32:35.924Z",
+      "source": "scan"
+    },
+    "Kestra/kestra-values.yaml": {
+      "description": "## Image",
+      "tokens": 3075,
+      "hash": "87655d4112ffa2c8",
+      "size": 10761,
+      "mtimeMs": 1787554058254.66,
+      "updatedAt": "2026-09-21T16:32:35.924Z",
+      "source": "scan"
+    },
+    "Kestra/secrets/ssh-key.yaml": {
+      "description": "K8s Secret: ssh-key",
+      "tokens": 49,
+      "hash": "fbf3e011fbd77ee0",
+      "size": 169,
+      "mtimeMs": 1787554058254.783,
+      "updatedAt": "2026-09-21T16:32:35.924Z",
+      "source": "scan"
+    },
+    "Kestra/secrets/tf-id-token.yaml": {
+      "description": "K8s Secret: tf-id-token",
+      "tokens": 52,
+      "hash": "ace848d084227333",
+      "size": 181,
+      "mtimeMs": 1787554058254.867,
+      "updatedAt": "2026-09-21T16:32:35.924Z",
+      "source": "scan"
+    },
+    "Kestra/secrets/tf-pve-api-token.yaml": {
+      "description": "K8s Secret: tf-pve-api-token",
+      "tokens": 56,
+      "hash": "2c299ab36c80e385",
+      "size": 196,
+      "mtimeMs": 1787554058254.9338,
+      "updatedAt": "2026-09-21T16:32:35.924Z",
+      "source": "scan"
+    },
+    "Kestra/secrets/tg-api-token.yaml": {
+      "description": "K8s Secret: tg-api-token",
+      "tokens": 53,
+      "hash": "1604547d0646910b",
+      "size": 184,
+      "mtimeMs": 1787554058254.9897,
+      "updatedAt": "2026-09-21T16:32:35.924Z",
+      "source": "scan"
+    },
+    "Kestra/secrets/tsig-key.yaml": {
+      "description": "K8s Secret: tsig-key",
+      "tokens": 50,
+      "hash": "4840c744e7f0fe44",
+      "size": 172,
+      "mtimeMs": 1787554058255.0493,
+      "updatedAt": "2026-09-21T16:32:35.925Z",
+      "source": "scan"
+    },
+    "Kestra/vault-config.yaml": {
+      "description": "K8s ServiceAccount: kestra-vault",
+      "tokens": 386,
+      "hash": "dec22afdd61cc18e",
+      "size": 1349,
+      "mtimeMs": 1787554058255.1099,
+      "updatedAt": "2026-09-21T16:32:35.925Z",
+      "source": "scan"
+    },
+    "kube-prometheus-stack/install.md": {
+      "description": "",
+      "tokens": 60,
+      "hash": "9ac542756a4dd58c",
+      "size": 238,
+      "mtimeMs": 1787554058258.213,
+      "updatedAt": "2026-09-21T16:32:35.925Z",
+      "source": "scan"
+    },
+    "kube-prometheus-stack/kube-prometheus-stack.yaml": {
+      "description": "K8s IngressRoute: grafana-ingress",
+      "tokens": 510,
+      "hash": "276d1e956e8dd9ec",
+      "size": 1785,
+      "mtimeMs": 1787554058258.2725,
+      "updatedAt": "2026-09-21T16:32:35.925Z",
+      "source": "scan"
+    },
+    "kube-prometheus-stack/values.yaml": {
+      "description": "",
+      "tokens": 1098,
+      "hash": "06df3428a08e771f",
+      "size": 3842,
+      "mtimeMs": 1787554058258.344,
+      "updatedAt": "2026-09-21T16:32:35.925Z",
+      "source": "scan"
+    },
+    "Longhorn/install.md": {
+      "description": "",
+      "tokens": 154,
+      "hash": "3e160ad31d5e970b",
+      "size": 615,
+      "mtimeMs": 1787554058255.207,
+      "updatedAt": "2026-09-21T16:32:35.925Z",
+      "source": "scan"
+    },
+    "Longhorn/longhorn-values.yaml": {
+      "description": "",
+      "tokens": 29,
+      "hash": "5a16b7bda36a0d06",
+      "size": 99,
+      "mtimeMs": 1787554058255.2756,
+      "updatedAt": "2026-09-21T16:32:35.925Z",
+      "source": "scan"
+    },
+    "Portainer/install.md": {
+      "description": "",
+      "tokens": 48,
+      "hash": "dd64fca311ddfb8a",
+      "size": 190,
+      "mtimeMs": 1787554058255.3672,
+      "updatedAt": "2026-09-21T16:32:35.925Z",
+      "source": "scan"
+    },
+    "Portainer/portainer-values.yaml": {
+      "description": "Default values for portainer.",
+      "tokens": 278,
+      "hash": "1936e3106336ca0f",
+      "size": 972,
+      "mtimeMs": 1787554058255.4287,
+      "updatedAt": "2026-09-21T16:32:35.926Z",
+      "source": "scan"
+    },
+    "README.md": {
+      "description": "Project documentation",
+      "tokens": 520,
+      "hash": "662e6ddbeeb5b056",
+      "size": 2104,
+      "mtimeMs": 1787554058255.4954,
+      "updatedAt": "2026-09-21T16:32:35.926Z",
+      "source": "scan"
+    },
+    "renovate.json": {
+      "description": "",
+      "tokens": 277,
+      "hash": "3c8c97dfd1c215b3",
+      "size": 968,
+      "mtimeMs": 1787554058258.4082,
+      "updatedAt": "2026-09-21T16:32:35.926Z",
+      "source": "scan"
+    },
+    "Traefik/install.md": {
+      "description": "",
+      "tokens": 44,
+      "hash": "5e09352c17bb8e47",
+      "size": 176,
+      "mtimeMs": 1787554058257.0884,
+      "updatedAt": "2026-09-21T16:32:35.926Z",
+      "source": "scan"
+    },
+    "Traefik/middleware/Crowdsec/bouncer-middleware.yaml": {
+      "description": "K8s Middleware: bouncer",
+      "tokens": 94,
+      "hash": "32d37aa6b0e90691",
+      "size": 326,
+      "mtimeMs": 1787554058257.3281,
+      "updatedAt": "2026-09-21T16:32:35.926Z",
+      "source": "scan"
+    },
+    "Traefik/middleware/default-headers.yaml": {
+      "description": "K8s Middleware: default-headers",
+      "tokens": 236,
+      "hash": "8f2dfb753a6c54bd",
+      "size": 826,
+      "mtimeMs": 1787554058257.5518,
+      "updatedAt": "2026-09-21T16:32:35.926Z",
+      "source": "scan"
+    },
+    "Traefik/middleware/middleware.yaml": {
+      "description": "K8s Middleware: traefik-dashboard-basicauth",
+      "tokens": 48,
+      "hash": "539e57dc296432b6",
+      "size": 168,
+      "mtimeMs": 1787554058257.6545,
+      "updatedAt": "2026-09-21T16:32:35.926Z",
+      "source": "scan"
+    },
+    "Traefik/traefik-values.yaml": {
+      "description": "Declares for",
+      "tokens": 873,
+      "hash": "006fc210d49e6bfb",
+      "size": 3054,
+      "mtimeMs": 1787554058257.7744,
+      "updatedAt": "2026-09-21T16:32:35.926Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Docker-SRV-01/homepage.yaml": {
+      "description": "K8s Service: homepage",
+      "tokens": 470,
+      "hash": "0efa9c083f51837f",
+      "size": 1643,
+      "mtimeMs": 1787554058255.6655,
+      "updatedAt": "2026-09-21T16:32:35.927Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Docker-SRV-01/kestra.yaml": {
+      "description": "K8s Service: kestra",
+      "tokens": 463,
+      "hash": "5c9317cde1c1666f",
+      "size": 1620,
+      "mtimeMs": 1787554058255.744,
+      "updatedAt": "2026-09-21T16:32:35.927Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Docker-SRV-02/n8n.yaml": {
+      "description": "K8s Service: n8n",
+      "tokens": 454,
+      "hash": "20d75dddb0d8a031",
+      "size": 1588,
+      "mtimeMs": 1787554058255.8616,
+      "updatedAt": "2026-09-21T16:32:35.927Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Home/jellyfin-vue.yaml": {
+      "description": "K8s Service: jellyfin-vue",
+      "tokens": 482,
+      "hash": "10d6ce6c15a79a1e",
+      "size": 1687,
+      "mtimeMs": 1787554058255.9612,
+      "updatedAt": "2026-09-21T16:32:35.927Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Home/jellyfin.yaml": {
+      "description": "K8s Service: jellyfin",
+      "tokens": 470,
+      "hash": "93edd4616cbe329a",
+      "size": 1643,
+      "mtimeMs": 1787554058256.0315,
+      "updatedAt": "2026-09-21T16:32:35.927Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Home/jellyseerr.yaml": {
+      "description": "K8s Service: jellyseerr",
+      "tokens": 476,
+      "hash": "03fa5de0713f0f7e",
+      "size": 1665,
+      "mtimeMs": 1787554058256.1,
+      "updatedAt": "2026-09-21T16:32:35.927Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Home/pbs.yaml": {
+      "description": "K8s Service: pbs",
+      "tokens": 454,
+      "hash": "311d8dfbde4084e4",
+      "size": 1588,
+      "mtimeMs": 1787554058256.1577,
+      "updatedAt": "2026-09-21T16:32:35.928Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Home/prowlarr.yaml": {
+      "description": "K8s Service: prowlarr",
+      "tokens": 470,
+      "hash": "5146ebae9f0f1a5b",
+      "size": 1643,
+      "mtimeMs": 1787554058256.2114,
+      "updatedAt": "2026-09-21T16:32:35.928Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Home/proxmox.yaml": {
+      "description": "K8s Service: proxmox",
+      "tokens": 467,
+      "hash": "f113258e1edcd9f6",
+      "size": 1632,
+      "mtimeMs": 1787554058256.2637,
+      "updatedAt": "2026-09-21T16:32:35.928Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Home/radarr.yaml": {
+      "description": "K8s Service: radarr",
+      "tokens": 464,
+      "hash": "007ecd0ab3dc470e",
+      "size": 1621,
+      "mtimeMs": 1787554058256.3247,
+      "updatedAt": "2026-09-21T16:32:35.928Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Home/sonarr.yaml": {
+      "description": "K8s Service: sonarr",
+      "tokens": 464,
+      "hash": "978143f1fb043bf1",
+      "size": 1621,
+      "mtimeMs": 1787554058256.387,
+      "updatedAt": "2026-09-21T16:32:35.928Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Home/truenas.yaml": {
+      "description": "K8s Service: truenas",
+      "tokens": 464,
+      "hash": "b9e5f6cab3ef30ee",
+      "size": 1622,
+      "mtimeMs": 1787554058256.4502,
+      "updatedAt": "2026-09-21T16:32:35.928Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Kubernetes/argocd.yaml": {
+      "description": "K8s IngressRoute: argocd-http",
+      "tokens": 432,
+      "hash": "6e510d106b78f2f0",
+      "size": 1509,
+      "mtimeMs": 1787554058256.5576,
+      "updatedAt": "2026-09-21T16:32:35.928Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Kubernetes/longhorn.yaml": {
+      "description": "K8s IngressRoute: longhorn-http",
+      "tokens": 380,
+      "hash": "e09a16cfb0968c22",
+      "size": 1327,
+      "mtimeMs": 1787554058256.6235,
+      "updatedAt": "2026-09-21T16:32:35.928Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/Kubernetes/traefik.yaml": {
+      "description": "K8s IngressRoute: traefik-http",
+      "tokens": 404,
+      "hash": "da35e525802ed815",
+      "size": 1412,
+      "mtimeMs": 1787554058256.6917,
+      "updatedAt": "2026-09-21T16:32:35.928Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/LXC/checkmk.yaml": {
+      "description": "K8s Service: checkmk",
+      "tokens": 565,
+      "hash": "e22bd3c36a6edbae",
+      "size": 1976,
+      "mtimeMs": 1787554058256.7935,
+      "updatedAt": "2026-09-21T16:32:35.929Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/LXC/pihole.yaml": {
+      "description": "K8s Service: pihole",
+      "tokens": 556,
+      "hash": "84f330d370b4d568",
+      "size": 1945,
+      "mtimeMs": 1787554058256.86,
+      "updatedAt": "2026-09-21T16:32:35.929Z",
+      "source": "scan"
+    },
+    "Traefik-Ingress/Internal/LXC/wazuh.yaml": {
+      "description": "K8s Service: wazuh",
+      "tokens": 460,
+      "hash": "f25fb7c05c71c5cd",
+      "size": 1608,
+      "mtimeMs": 1787554058256.9268,
+      "updatedAt": "2026-09-21T16:32:35.929Z",
+      "source": "scan"
+    },
+    "Vault/kestra-vault-sa.yaml": {
+      "description": "K8s ServiceAccount: kestra-vault",
+      "tokens": 25,
+      "hash": "ef12e19b81cc36c2",
+      "size": 87,
+      "mtimeMs": 1787554058257.9495,
+      "updatedAt": "2026-09-21T16:32:35.929Z",
+      "source": "scan"
+    },
+    "Vault/vault-auth.yaml": {
+      "description": "K8s ServiceAccount: vault-auth",
+      "tokens": 106,
+      "hash": "f9ab9cfb70996dff",
+      "size": 369,
+      "mtimeMs": 1787554058258.0515,
+      "updatedAt": "2026-09-21T16:32:35.929Z",
+      "source": "scan"
+    },
+    "Vault/vault-values.yaml": {
+      "description": "",
+      "tokens": 91,
+      "hash": "e2a5ee04657368c7",
+      "size": 317,
+      "mtimeMs": 1787554058258.1123,
+      "updatedAt": "2026-09-21T16:32:35.929Z",
+      "source": "scan"
+    }
+  },
+  "preamble": [
+    "> Project structure index. Auto-maintained by OpenWolf hooks and daemon.",
+    "> Run `openwolf scan` to generate, or wait for the first Claude Code session.",
+    "> Status: Pending initial scan"
+  ]
+}
